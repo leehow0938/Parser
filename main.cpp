@@ -10,31 +10,30 @@
 #include "scan.h"
 using namespace std;
 
+// this array is used to print out the tokentype. Since tokentype is enum cannot be printed out directly.
+char const *typestr[] = {"tokbegin", "tokcall", "tokdeclare", "tokdo",
+        "tokelse","tokend", "tokendif", "tokenduntil",  "tokendwhile", "tokif",
+        "tokinteger", "tokparameters", "tokprocedure", "tokprogram", "tokread",
+        "tokreal", "tokset", "tokthen", "tokuntil", "tokwhile", "tokwrite",
+        "tokstar", "tokplus", "tokminus", "tokslash", "tokequals",
+        "toksemicolon", "tokcomma", "tokperiod", "tokgreater", "tokless",
+        "toknotequal", "tokopenparen", "tokcloseparen", "tokfloat",
+        "tokidentifier", "toknumber", "tokerror", "tokeof", "tokunknown"
+    };
+
 // Task here is to scan a file and return the tokens.
 int main(int argc, const char * argv[]) {
-    scanner s;
-    
-    // vriable i is used to be a parameter of gettoken(), but at this point,
-    // we do not have a parser, so it has no meaning and is just a parameter
-    // to let the program run.
+    // vriable i is used to be a parameter of gettoken()
     int i=0;
     tokentype thistoken;
     
+    scanner s;
     // loop calling gettoken() scan and return a new token, and stop when
     // reach the end of file.
     while((thistoken=s.gettoken(i))!=tokeof)
     {
-        switch (thistoken)
-        {
-            case tokword: cout<<"tokword"<<endl; break;
-            case toknumber: cout<<"toknumber"<<endl;break;
-            case tokop: cout<<"tokop"<<endl;break;
-                
-            case toksymbol:cout<<"toksymbol"<<endl; break ;
-            case tokeof:cout<<"tokeof"<<endl; break ;
-            case tokerror:cout<<"tokerror"<<endl; break ;
-            default : break ;
-        }
+        cout<<"      "<<typestr[thistoken]<<endl;
+        
     }
     return 0;
 }

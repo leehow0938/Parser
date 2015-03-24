@@ -6,4 +6,3 @@ In the first part, we are asked to build a scanner which could scan a Pascal pro
 At this stage, the symbol table is not required. 
 
 The second step is to build a symbol table manager. And Now I'm working on this.
-(Still try to explore the features of github)
